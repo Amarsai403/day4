@@ -1,0 +1,33 @@
+<p appTestDirective [backgroundColor]="'orange'" [textColor]="'black'">
+  directive-demo works!
+</p>
+<div [ngSwitch]='userStatus'>
+<ng-template [ngSwitchCase]="'Restore'" >
+  <p  >Welcome Back</p>
+</ng-template>
+<ng-template [ngSwitchCase]="'old_lost'"  >
+  <p >Restore the last Session</p>
+</ng-template>
+<div *ngFor="let good of (arr | testP)">
+  {{good.name}}
+</div>
+<input [(ngModel)]="good.name" name="type">
+<input [(ngModel)]="good.type" name="name">
+<button type="button" (click)="insert()">Submit</button>
+<!--  <p *ngSwitchCase="'New'" >Welcome to the app</p>
+  <p *ngSwitchCase="'old_lost'" >Restore the last Session</p>
+  <p *ngSwitchCase="'Restore'" >Welcome Back</p>
+  <p *ngSwitchDefault >Welcome</p>
+-->
+</div>
+<p>{{ 1234.56 | currency:'INR':'code' }}</p>
+<p>{{ 1234.56 | roundOf:5 }}</p>
+<div (click)="showDiv=!showDiv" *ngIf="showDiv">
+<p *appDelayDirective='1000'>this is a p tag</p>
+</div>
+<li *ngFor="let fruit of fruits">{{fruit}}</li>
+<select >
+    <ng-container *ngFor="let fruit of fruits;let i=index;">
+  <option   [value]="i">{{i}}</option>
+    </ng-container>  
+</select>
